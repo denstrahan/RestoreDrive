@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RestoreDrive</name>
+    </assembly>
+    <members>
+        <member name="T:EventLoggerHelper.EventLogger">
+            <summary>
+            ////////////////////////////////////////////////////////////////////////
+            This class writes messages to our custom Event Log...                ///
+            ////////////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+        <member name="M:EventLoggerHelper.EventLogger.CreateEventLog">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            This method creates the event log source and the necessary       ///
+            member variables...                                              ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+        <member name="M:EventLoggerHelper.EventLogger.Add(System.String)">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            This method adds to the event list which will later be written   ///
+            out as one string.  Inherits the Add method from the List class. ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>                                                         
+            <param name="strEvent"></param>
+        </member>
+        <member name="M:EventLoggerHelper.EventLogger.WriteToEventLog">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            This method concatenates all the events in the list into one     ///
+            string and writes it out to the custom log...                    ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+        <member name="M:EventLoggerHelper.EventLogger.CloseEventLog">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            This method cleans up...                                         ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+        <member name="M:RestoreDrive.RestoreDrive.Main">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            Main() is simple:                                                ///
+            o Set up our custom event log                                    ///
+            o Check to see if we need to restore the drive letter            ///
+            o Execute the restore process, if necessary                      ///
+            o Finish recording the event                                     ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+        <member name="M:RestoreDrive.RestoreDrive.RestoreDriveInit">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            This method processes the command line arguments and then        ///
+            checks to see if the drive letter is still assigned.             ///                       
+                                                                             ///
+            There are three arguments:                                       ///
+            o The app name (which is ignored)                                ///
+            o The drive letter to be restored                                ///
+            o The volume label the drive letter is assigned to               ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:RestoreDrive.RestoreDrive.RestoreDriveLetter">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            This method uses the volume label to retrieve it's GUID,         ///
+            which is used by the SetVolumeMountPoint Win32 API function...   ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+        <member name="M:RestoreDrive.RestoreDrive.BeginLog">
+            <summary>
+            ///////////////////////////////////////////////////////////////////
+            Create the start up log entry for the Event Log...              ///
+            ///////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+        <member name="M:RestoreDrive.RestoreDrive.EndLog">
+            <summary>
+            ////////////////////////////////////////////////////////////////////
+            Create the final log entry for the Event Log...                  ///
+            ////////////////////////////////////////////////////////////////////
+            </summary>
+        </member>
+    </members>
+</doc>
